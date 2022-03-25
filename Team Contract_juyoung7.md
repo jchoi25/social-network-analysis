@@ -19,5 +19,9 @@ Juyoung Choi (juyoung7)
 3. **Conflict Resolution:** Members will meet to discuss when conflicts/disagreements arise to compromise. Before rejecting a member’s idea, a valid reason and an alternative idea will need to be presented. For conflicts regarding the project work, members will ask the project mentor for an opinion, if cannot be resolved within the group. When a member does not do their part persistently or is habitually late, all members will meet to address the issue and alert the assigned project mentor, if it cannot be resolved within the group.
 
 ## Member Signatures
+Sooha Ryu
+
+Sangyun Lee
 
 Juyoung Choi
+
