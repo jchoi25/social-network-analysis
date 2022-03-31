@@ -20,7 +20,8 @@ Juyoung Choi (juyoung7)
 
 ## Member Signatures
 
-
 Juyoung Choi
 
 Sooha Ryu
+
+Sangyun Lee
