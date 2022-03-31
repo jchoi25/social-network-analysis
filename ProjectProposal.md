@@ -16,27 +16,22 @@ The dataset we will be using is from the Stanford Large Network Data Collection.
 For our backup dataset, we have chosen Twitter social circles, which have the same files and contents as our main dataset of Facebook, but from Twitter. 
 
 
-
 ## Algorithms
 
-**DFS**	
+### DFS
 DFS Traversal will be used to visualize the graph at the end. It will go through all nodes to visualize each connected node. Since we will go through the entire graph, both the time and space complexity for this algorithm is O(n).
 
-**Betweenness Centrality**
-We will be using the Between Centrality algorithm to find the centrality of each node. The centrality will be an indicator of how many shortest paths go through that node. High centrality nodes can be regarded as users that many people visit to connect to other users who are not in their direct social network. The output will be a list of nodes and their centralities in a .txt file. By using the optimized Brandes algorithm based of BFS, we can achieve a time complexity of O(V * E) and a space complexity of O(V + E) where V is the number of vertices and E is the number of edges.
+### Betweenness Centrality
+We will be using the Betweenness Centrality algorithm to find the centrality of each node. The centrality will be an indicator of how many shortest paths go through that node. High centrality nodes can be regarded as users that many people visit to connect to other users who are not in their direct social network. The output will be a list of nodes and their centralities in a .txt file. By using the optimized Brandes algorithm based of BFS, we can achieve a time complexity of O(V * E) and a space complexity of O(V + E) where V is the number of vertices and E is the number of edges.
 
-**PageRank**
+### PageRank
 PageRank will be used to find the most “influential” node. Given a graph, this will be outputting a graph with each node storing the popularity, or importance value of the node. More specifically, this will tell us what nodes are the "hub nodes" which have more connections than what other nodes have. The time complexity of this algorithm will be O(k * E) (k is the number of iterations; since the input graph is undirected, it will need to be converted into a directed graph) with the space complexity of O(n).
 
 
 ## Timeline
 	
-Due 04/07: Data processing and full structure/layout of program settings
-Due 04/14: BFS and DFS algorithms written and verified with tests
-
--  04/15 Mid-Project Check-in  -
-
-Due 04/21: Betweenness Centrality algorithm written and verified with tests
-Due 04/28: Page Rank Algorithm written and verified with tests
-         (If time allows, graphs visualized more than prints)
-Due 05/05: Final written report and presentation video and slides (+ README file)
+- Due 04/07: Data processing and full structure/layout of program settings
+- Due 04/14: BFS and DFS algorithms written and verified with tests (04/15 Mid-Project Check-in) 
+- Due 04/21: Betweenness Centrality algorithm written and verified with tests
+- Due 04/28: Page Rank Algorithm written and verified with tests (If time allows, graphs visualized more than prints)
+- Due 05/05: Final written report and presentation video and slides (+ README file)
