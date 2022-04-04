@@ -8,6 +8,6 @@
 #include "pagerank.h"
 
 int main() {
-  std::cout << "hello" << std::endl;
-  return 0;
+    std::cout << "hello" << std::endl;
+    return 0;
 }
