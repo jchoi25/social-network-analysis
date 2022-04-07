@@ -1,3 +1,6 @@
+### Re-Grade
+100% - 10% = 90%
+
 ### Grade
 In-complete (0%)
 
