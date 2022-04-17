@@ -7,6 +7,12 @@ Node::Node(int id) {
     betweenness_ = 0;
 }
 
+Node::Node(int id, double importance, double betweenness) {
+    id_ = id;
+    importance_ = importance;
+    betweenness_ = betweenness;
+}
+
 void Node::setImportance(double importance) {
     importance_ = importance;
 }

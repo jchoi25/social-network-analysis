@@ -4,6 +4,7 @@ class Node {
 
     public:
         Node(int id);
+        Node(int id, double importance, double betweenness);
 
         void setImportance(double importance);
         void setBetweenness(double betweenness);
@@ -16,7 +17,7 @@ class Node {
         */
 
         int getId() const;
-        
+
         double getImportance() const;
         double getBetweenness() const;
 
