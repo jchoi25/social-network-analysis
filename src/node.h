@@ -9,8 +9,11 @@ class Node {
         void setBetweenness(double betweenness);
         void setImportanceRank(unsigned importanceRank);
         void setBetweennessRank(unsigned betweennessRank);
+
+        /*
         void increaseImportance()
         void increaseBetweenness()
+        */
 
         int getId() const;
         double getImportance() const;

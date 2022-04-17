@@ -23,15 +23,17 @@ void Node::setBetweennessRank(unsigned betweennessRank) {
     betweennessRank_ = betweennessRank;
 }
 
+/*
 void Node::increaseImportance() {
     importance_++;
-    importanceRank_++;
+    importanceRank_--;
 }
 
 void Node::increaseBetweenness() {
     betweenness_++;
-    betweennessRank_++;
+    betweennessRank_--;
 }
+*/
 
 int Node::getId() const {
     return id_;
