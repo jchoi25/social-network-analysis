@@ -37,3 +37,6 @@
 *.featnames
 
 .vscode/c_cpp_properties.json
+.devcontainer
+Dockerfile
+.vscode
