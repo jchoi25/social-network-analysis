@@ -31,7 +31,9 @@
 *.out
 *.app
 
-# Data
-data/data.txt
+# Unused Data
+*.egofeat
+*.feat
+*.featnames
 
 .vscode/c_cpp_properties.json
