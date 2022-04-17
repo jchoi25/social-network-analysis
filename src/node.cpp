@@ -7,12 +7,6 @@ Node::Node(int id) {
     betweenness_ = 0;
 }
 
-Node::Node(int id, double importance, double betweenness) {
-    id_ = id;
-    importance_ = importance;
-    betweenness_ = betweenness;
-}
-
 void Node::setImportance(double importance) {
     importance_ = importance;
 }
@@ -29,17 +23,13 @@ void Node::setBetweennessRank(unsigned betweennessRank) {
     betweennessRank_ = betweennessRank;
 }
 
-/*
 void Node::increaseImportance() {
     importance_++;
-    importanceRank_--;
 }
 
 void Node::increaseBetweenness() {
     betweenness_++;
-    betweennessRank_--;
 }
-*/
 
 int Node::getId() const {
     return id_;
