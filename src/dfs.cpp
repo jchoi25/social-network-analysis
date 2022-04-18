@@ -16,7 +16,7 @@ void DFS::makeorder(Adjlist& edges, std::vector<Node>& nodes) {  // create order
                 stack.pop();
                 traversal_order_.push_back(&nodes[nextid]);
                 for (unsigned j = 0; j < edges[nextid].size(); ++j) {
-                    int adjid = edges[nextid][j]->getId();  // get adjacent's Id from the vector
+                    int adjid = edges[nextid][j]->get_id();  // get adjacent's Id from the vector
                     if (!visited[adjid]) {
                         visited[adjid] = true;
                         stack.push(adjid);
