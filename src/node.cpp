@@ -1,4 +1,5 @@
 #include "node.h"
+
 #include <iostream>
 
 Node::Node(int id) {
@@ -7,46 +8,46 @@ Node::Node(int id) {
     betweenness_ = 0;
 }
 
-void Node::setImportance(double importance) {
+void Node::set_importance(double importance) {
     importance_ = importance;
 }
 
-void Node::setBetweenness(double betweenness) {
+void Node::set_betweenness(double betweenness) {
     betweenness_ = betweenness;
 }
 
-void Node::setImportanceRank(unsigned importanceRank) {
-    importanceRank_ = importanceRank;
+void Node::set_importance_rank(unsigned importanceRank) {
+    importance_rank_ = importanceRank;
 }
 
-void Node::setBetweennessRank(unsigned betweennessRank) {
-    betweennessRank_ = betweennessRank;
+void Node::set_betweenness_rank(unsigned betweennessRank) {
+    betweenness_rank_ = betweennessRank;
 }
 
-void Node::increaseImportance() {
+void Node::increase_importance() {
     importance_++;
 }
 
-void Node::increaseBetweenness() {
+void Node::increase_betweenness() {
     betweenness_++;
 }
 
-int Node::getId() const {
+int Node::get_id() const {
     return id_;
 }
 
-double Node::getImportance() const {
+double Node::get_importance() const {
     return importance_;
 }
 
-double Node::getBetweenness() const {
+double Node::get_betweenness() const {
     return betweenness_;
 }
 
-unsigned Node::getImportanceRank() const {
-    return importanceRank_;
+unsigned Node::get_importance_rank() const {
+    return importance_rank_;
 }
 
-unsigned Node::getBetweennessRank() const {
-    return betweennessRank_;
+unsigned Node::get_betweenness_rank() const {
+    return betweenness_rank_;
 }

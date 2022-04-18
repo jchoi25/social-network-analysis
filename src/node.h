@@ -4,27 +4,27 @@ class Node {
   public:
     Node(int id);
 
-    void setImportance(double importance);
-    void setBetweenness(double betweenness);
-    void setImportanceRank(unsigned importanceRank);
-    void setBetweennessRank(unsigned betweennessRank);
+    void set_importance(double importance);
+    void set_betweenness(double betweenness);
+    void set_importance_rank(unsigned importanceRank);
+    void set_betweenness_rank(unsigned betweennessRank);
 
-    void increaseImportance();
-    void increaseBetweenness();
+    void increase_importance();
+    void increase_betweenness();
 
-    int getId() const;
+    int get_id() const;
 
-    double getImportance() const;
-    double getBetweenness() const;
+    double get_importance() const;
+    double get_betweenness() const;
 
-    unsigned getImportanceRank() const;
-    unsigned getBetweennessRank() const;
+    unsigned get_importance_rank() const;
+    unsigned get_betweenness_rank() const;
 
   private:
     int id_;
     double importance_;
     double betweenness_;
 
-    unsigned importanceRank_;
-    unsigned betweennessRank_;
+    unsigned importance_rank_;
+    unsigned betweenness_rank_;
 };

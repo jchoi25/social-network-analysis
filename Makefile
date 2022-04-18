@@ -1,7 +1,7 @@
 EXE = main
 TEST = test
-OBJS = main.o node.o graph.o dfs.o bfs.o pagerank.o betweenness.o
-TEST_OBJS = node.o graph.o dfs.o bfs.o pagerank.o betweenness.o tests.o
+OBJS = main.o node.o graph.o dfs.o pagerank.o betweenness.o
+TEST_OBJS = node.o graph.o dfs.o pagerank.o betweenness.o tests.o
 
 CXX = clang++
 CXXFLAGS = -std=c++1y -stdlib=libc++ -O0 $(WARNINGS) -g -c
@@ -33,14 +33,11 @@ node.o: src/node.cpp src/node.h
 graph.o: src/graph.cpp src/graph.h src/node.cpp src/node.h src/betweenness.cpp src/betweenness.h src/dfs.cpp src/dfs.h
 	$(CXX) $(CXXFLAGS) src/graph.cpp
 
-betweenness.o: src/betweenness.cpp src/betweenness.h src/node.cpp src/node.h src/bfs.cpp src/bfs.h
+betweenness.o: src/betweenness.cpp src/betweenness.h src/node.cpp src/node.h
 	$(CXX) $(CXXFLAGS) src/betweenness.cpp
 
 dfs.o: src/dfs.cpp src/dfs.h src/node.cpp src/node.h src/graph.cpp src/graph.h 
 	$(CXX) $(CXXFLAGS) src/dfs.cpp
-
-bfs.o: src/bfs.cpp src/bfs.h src/node.cpp src/node.h src/graph.cpp src/graph.h 
-	$(CXX) $(CXXFLAGS) src/bfs.cpp
 
 pagerank.o: src/pagerank.cpp src/pagerank.h src/node.cpp src/node.h src/graph.cpp src/graph.h 
 	$(CXX) $(CXXFLAGS) src/pagerank.cpp
