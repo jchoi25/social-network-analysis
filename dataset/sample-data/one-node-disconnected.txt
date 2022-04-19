@@ -1,0 +1,16 @@
+# Disconnnected graph (1 node disconnected)
+# Nodes: 7      Edges: 13
+# FromNodeId	ToNodeId
+0	1
+0   6
+1   0
+1   4 
+3   4
+3   5
+4   3
+4   5
+4   6
+5   3
+5   4
+6   0
+6   4

@@ -1,0 +1,3 @@
+# All-nodes disconnected undirected graph with many nodes
+# Nodes: 100      Edges: 0
+# FromNodeId	ToNodeId

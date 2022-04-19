@@ -1,0 +1,9 @@
+0
+7
+1
+2
+3
+5
+4
+6
+Graph of 8 nodes traversed
