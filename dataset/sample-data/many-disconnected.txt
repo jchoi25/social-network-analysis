@@ -1,0 +1,5 @@
+# Many Disconnnected Component graph (2 nodes connected)
+# Nodes: 9      Edges: 2
+# FromNodeId	ToNodeId
+0	6
+6   0
