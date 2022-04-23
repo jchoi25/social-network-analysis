@@ -30,13 +30,18 @@
 *.exe
 *.out
 *.app
+main
+test
 
 # Unused Data
 *.egofeat
 *.feat
 *.featnames
 
+# VSCode 
 .vscode/c_cpp_properties.json
+.vscode
+
+# Docker container files
 .devcontainer
 Dockerfile
-.vscode

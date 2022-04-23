@@ -14,7 +14,7 @@ Graph::Graph(std::string filename, size_t num_nodes) {
     parse_nodes(filename);
 }
 
-void Graph::traversal(std::string name) {
+void Graph::traverse(std::string name) {
     DFS dfs(edges_, nodes_);
     // Output to file
     std::ofstream ofs;
@@ -38,17 +38,16 @@ void Graph::parse_nodes(std::string filename) {
     std::ifstream ifs(filename);
     edges_.resize(num_nodes_);
     std::string edge;
-    unsigned from, to;
+    unsigned one, two;
     if (ifs.is_open()) {
         while (getline(ifs, edge)) {
             // if line is not a comment
             if (edge[0] != '#') {
                 std::istringstream iss;
                 iss.str(edge);
-                iss >> from;
-                iss >> to;
-                if (from < num_nodes_ && to < num_nodes_) {
-                    edges_[from].push_back(&nodes_[to]);
+                iss >> one >> two;
+                if (one < num_nodes_ && two < num_nodes_) {
+                    edges_[one].push_back(&nodes_[two]);
                 }
             }
         }
@@ -61,7 +60,14 @@ AdjList Graph::get_edges() const {
     return edges_;
 }
 
-std::string Graph::output_edges() const {
-    std::string output;
-    return output;
+std::string Graph::verify_parse() const {
+    std::string out;
+    for (unsigned i = 0; i < num_nodes_; ++i) {
+        out += "From node " + std::to_string(i) + ": " + std::to_string(i);
+        for (auto node : edges_[i]) {
+            out += " -> " + std::to_string(node->get_id());
+        }
+        out += "\n";
+    }
+    return out;
 }

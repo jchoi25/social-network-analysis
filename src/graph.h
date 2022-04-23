@@ -17,27 +17,40 @@ typedef std::vector<std::vector<Node*>> AdjList;
 class Graph {
   public:
     Graph();
-
     Graph(AdjList edges, std::vector<Node> nodes);
-
     Graph(std::string filename, size_t num_nodes);
 
     /**
      * DFS traversal method
      */
-    void traversal(std::string name);
+    void traverse(std::string name);
 
     /**
-     * Method that will return a string of the adjacency list.
+     * Function to help verify if parsing is done correctly
+     *
+     * @returns string that contains the starting nodes and the nodes that it is connected to
      */
-    std::string output_edges() const;
+    std::string verify_parse() const;
 
+    /**
+     * Getter function for the adjacency list
+     *
+     * @returns AdjList of the edges of the parsed graph
+     **/
     AdjList get_edges() const;
 
   private:
     unsigned num_nodes_;
     AdjList edges_;
     std::vector<Node> nodes_;
+    /**
+     * Function to initialize the graph
+     * */
     void create_nodes();
+    /**
+     * Function to parse the nodes into the graph
+     *
+     * @param filename The name of the file to parse
+     * */
     void parse_nodes(std::string filename);
 };
