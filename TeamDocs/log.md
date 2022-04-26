@@ -11,3 +11,6 @@
 - Implemented Node, Graph, and DFS with a graph parsing algorithm to parse the dataset.
 - Created a small sample text file to informally test the parsing algorithm and DFS.
 
+## Week 4
+-Midpoint check-in
+-Started to build betweenness-centrality
