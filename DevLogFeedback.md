@@ -15,3 +15,9 @@ Nice work. You guys should be on the right track. For the mid-checkin, remember 
 PASS
 
 Nice progress. I went over your test case, which I assume is used for the data parsing. I would suggest you to include more test cases for data parsing and BFS. For example, manually create a txt file that contains only few nodes and edges as a mini dataset, and see if your parsing and BFS works on this small graph. This is much more managable and easy to debug. Remember, we will check for test cases for both data parsing and traversal algorithms in both mid-checkin and final delivery.
+
+### Week April 18 - April 24
+
+PASS
+
+Nice work. Good job on the mid-checkin.
