@@ -35,4 +35,13 @@ void Betweenness::calculateBetweenness() {
             }
         }
     }
+
+    unsigned total = 0;
+    for (unsigned b2 : betweennesses_) {
+        total += b2;
+    }
+
+    for (unsigned finalb : betweennesses_) {
+        finalb = finalb / total;
+    }
 }
