@@ -12,6 +12,10 @@
 - Created a small sample text file to informally test the parsing algorithm and DFS.
 
 ## Week 4
-- Midpoint check-in
+- Midpoint check-in Done
 - Added test cases for parse and DFS
 - Started to build betweenness-centrality
+
+## Week 5
+- Implemented Betweenness Centrality including shortest path and PageRank algorithms
+- Started to make test cases for those algorithms
