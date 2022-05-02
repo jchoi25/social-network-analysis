@@ -22,6 +22,8 @@ string read_file(string filename) {
     return output;
 }
 
+/* Parse Graph Tests */
+
 TEST_CASE("Parse Simple Connected Graph", "[parse]") {
     Graph g("dataset/sample-data/one-connected.txt", 7);
     string parsed = g.verify_parse();
@@ -61,6 +63,8 @@ TEST_CASE("Parse Simple Disconnected Graph", "[parse]") {
             "From node 5: 5 -> 3 -> 4\n"
             "From node 6: 6 -> 0 -> 4\n");
 }
+
+/* DFS Traversal Tests */
 
 TEST_CASE("DFS Traversal - Connected Undirected Graph", "[dfs]") {
     Graph g("dataset/sample-data/one-connected.txt", 7);
@@ -102,4 +106,18 @@ TEST_CASE("DFS Traversal - All Disonnected Undirected Graph", "[dfs]") {
     g.traverse("test-traversal.txt");
     REQUIRE(read_file("sample-output/disconnected-many-nodes.txt") == read_file("test-traversal.txt"));
     remove("output/test-traversal.txt");
+}
+
+/* Betweenness Centrality Tests */
+
+TEST_CASE("Betweenness Centrality - Multiple Nodes Connected Graph", "[betweenness]") {
+    
+}
+
+TEST_CASE("Betweenness Centrality - Multiple Nodes Disconnected Graph", "[betweenness]") {
+    
+}
+
+TEST_CASE("Betweenness Centrality - All Nodes Disconnected Graph", "[betweenness]") {
+    
 }
