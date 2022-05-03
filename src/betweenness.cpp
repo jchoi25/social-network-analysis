@@ -39,17 +39,10 @@ void Betweenness::calculateBetweenness() {
                 }
             }
         }
-        // unsigned k;
-        // for (unsigned b : backtrace) {
-        //     if (b != i) {
-        //         if (b >= 0 && b < betweennesses_.size()) {
-        //             betweennesses_[b] += 1.0;
-        //         }
-        //     }
-        // }
+
         for (unsigned idxj = 0; idxj < backtrace.size(); ++idxj) {
             unsigned k = idxj;
-            while (k != i && k < betweennesses_.size() && k >= 0) {
+            while (backtrace[k] != i && backtrace[k] < betweennesses_.size() && backtrace[k] >= 0) {
                 betweennesses_[backtrace[k]] += 1.0;
                 k = backtrace[k];
             }
