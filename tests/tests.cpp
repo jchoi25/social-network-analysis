@@ -176,5 +176,32 @@ TEST_CASE("Betweenness Centrality - Multiple Nodes Disconnected Graph", "[betwee
     REQUIRE(betw.getbetweenness(&node5) == 0);
 }
 
-TEST_CASE("Betweenness Centrality - All Nodes Disconnected Graph", "[betweenness]") {
+TEST_CASE("Betweenness Centrality - All Nodes Disconnected Graph", "[betweenness3]") {
+    Node node0(0);
+    Node node1(1);
+    Node node2(2);
+    Node node3(3);
+    Node node4(4);
+    Node node5(5);
+    std::vector<Node*> adj0;
+    std::vector<Node*> adj1;
+    std::vector<Node*> adj2;
+    std::vector<Node*> adj3;
+    std::vector<Node*> adj4;
+    std::vector<Node*> adj5;
+    std::vector<std::vector<Node*>> adjs;
+    std::vector<Node*> nodes;
+    adjs.push_back(adj0);
+    adjs.push_back(adj1);
+    adjs.push_back(adj2);
+    adjs.push_back(adj3);
+    adjs.push_back(adj4);
+    adjs.push_back(adj5);
+    Betweenness betw(adjs);
+    REQUIRE(betw.getbetweenness(&node0) == 0);
+    REQUIRE(betw.getbetweenness(&node1) == 0);
+    REQUIRE(betw.getbetweenness(&node2) == 0);
+    REQUIRE(betw.getbetweenness(&node3) == 0);
+    REQUIRE(betw.getbetweenness(&node4) == 0);
+    REQUIRE(betw.getbetweenness(&node5) == 0);
 }

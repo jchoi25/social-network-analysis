@@ -49,14 +49,20 @@ void Betweenness::calculateBetweenness() {
         }
     }
 
+    for (double b : betweennesses_) {
+        std::cout << b << std::endl;
+    }
+
     double total = 0;
     for (unsigned c = 0; c < betweennesses_.size(); ++c) {
         total = total + betweennesses_[c];
     }
 
-    for (unsigned j = 0; j < betweennesses_.size(); ++j) {
-        double temp = betweennesses_[j];
-        betweennesses_[j] = temp / total;
+    if (total != 0) {
+        for (unsigned j = 0; j < betweennesses_.size(); ++j) {
+            double temp = betweennesses_[j];
+            betweennesses_[j] = temp / total;
+        }
     }
 }
 
