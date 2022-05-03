@@ -13,10 +13,10 @@ class Betweenness {
   public:
     Betweenness(const Adjlist adjs_);
     void calculateBetweenness();
-    std::vector<unsigned> getbetweennesses();
-    unsigned getbetweenness(Node*);
+    std::vector<double> getbetweennesses();
+    double getbetweenness(Node*);
 
   private:
-    std::vector<unsigned> betweennesses_;
+    std::vector<double> betweennesses_;
     Adjlist adjs_;
 };
