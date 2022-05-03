@@ -49,10 +49,6 @@ void Betweenness::calculateBetweenness() {
         }
     }
 
-    for (double b : betweennesses_) {
-        std::cout << b << std::endl;
-    }
-
     double total = 0;
     for (unsigned c = 0; c < betweennesses_.size(); ++c) {
         total = total + betweennesses_[c];
