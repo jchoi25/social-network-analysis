@@ -110,32 +110,35 @@ TEST_CASE("DFS Traversal - All Disonnected Undirected Graph", "[dfs]") {
 
 /* Betweenness Centrality Tests */
 
-TEST_CASE("Betweenness Centrality - Multiple Nodes Connected Graph", "[betweenness]") {
+TEST_CASE("Betweenness Centrality - Multiple Nodes Connected Graph", "[betweenness1]") {
     Node node0(0);
     Node node1(1);
     Node node2(2);
     Node node3(3);
+    Node node4(4);
     std::vector<Node*> adj0;
     std::vector<Node*> adj1;
     std::vector<Node*> adj2;
     std::vector<Node*> adj3;
+    std::vector<Node*> adj4;
     adj0.push_back(&node1);
-    adj0.push_back(&node2);
-    adj0.push_back(&node3);
     adj1.push_back(&node0);
-    adj2.push_back(&node0);
-    adj3.push_back(&node0);
+    adj1.push_back(&node2);
+    adj2.push_back(&node1);
+    adj2.push_back(&node3);
+    adj3.push_back(&node2);
+    adj3.push_back(&node4);
+    adj4.push_back(&node3);
     std::vector<std::vector<Node*>> adjs;
     std::vector<Node*> nodes;
     adjs.push_back(adj0);
     adjs.push_back(adj1);
     adjs.push_back(adj2);
     adjs.push_back(adj3);
+    adjs.push_back(adj4);
     Betweenness betw(adjs);
-    REQUIRE(betw.getbetweenness(&node0) == 1);
-    REQUIRE(betw.getbetweenness(&node1) == 0);
-    REQUIRE(betw.getbetweenness(&node2) == 0);
-    REQUIRE(betw.getbetweenness(&node3) == 0);
+    std::vector<unsigned> answ{2};
+    REQUIRE(betw.get_highest_rank() == answ);
 }
 
 TEST_CASE("Betweenness Centrality - Multiple Nodes Disconnected Graph", "[betweenness]") {
@@ -205,6 +208,8 @@ TEST_CASE("Betweenness Centrality - All Nodes Disconnected Graph", "[betweenness
     REQUIRE(betw.getbetweenness(&node4) == 0);
     REQUIRE(betw.getbetweenness(&node5) == 0);
 }
+
+/* PageRank Tests */
 
 TEST_CASE("Pagerank - Multiple Nodes Connected Graph", "[pagerank]") {
     Node node0(0);
@@ -301,3 +306,5 @@ TEST_CASE("pagerank - All Nodes Disconnected Graph", "[pagerank]") {
     REQUIRE(pr.get_highest_rank() == highests);
     REQUIRE(pr.get_lowest_rank() == lowests);
 }
+
+/* Finding Shortest Path using BFS Tests */

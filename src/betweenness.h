@@ -16,6 +16,9 @@ class Betweenness {
     std::vector<double> getbetweennesses();
     double getbetweenness(Node*);
 
+    std::vector<unsigned> get_highest_rank();
+    std::vector<unsigned> get_lowest_rank();
+
   private:
     std::vector<double> betweennesses_;
     Adjlist adjs_;

@@ -39,12 +39,19 @@ void Betweenness::calculateBetweenness() {
                 }
             }
         }
-
-        for (unsigned b : backtrace) {
-            if (b != i) {
-                if (b >= 0 && b < betweennesses_.size()) {
-                    betweennesses_[b] += 1.0;
-                }
+        // unsigned k;
+        // for (unsigned b : backtrace) {
+        //     if (b != i) {
+        //         if (b >= 0 && b < betweennesses_.size()) {
+        //             betweennesses_[b] += 1.0;
+        //         }
+        //     }
+        // }
+        for (unsigned idxj = 0; idxj < backtrace.size(); ++idxj) {
+            unsigned k = idxj;
+            while (k != i && k < betweennesses_.size() && k >= 0) {
+                betweennesses_[backtrace[k]] += 1.0;
+                k = backtrace[k];
             }
         }
     }
@@ -69,4 +76,40 @@ std::vector<double> Betweenness::getbetweennesses() {
 double Betweenness::getbetweenness(Node* node) {
     unsigned idx = node->get_id();
     return betweennesses_[idx];
+}
+
+std::vector<unsigned> Betweenness::get_highest_rank() {
+    double highest = 0;
+    for (unsigned i = 0; i < betweennesses_.size(); ++i) {
+        if (betweennesses_[i] > betweennesses_[highest]) {
+            highest = i;
+        }
+    }
+
+    std::vector<unsigned> highests;
+    for (unsigned i = 0; i < betweennesses_.size(); ++i) {
+        if (betweennesses_[i] == betweennesses_[highest]) {
+            highests.push_back(i);
+        }
+    }
+
+    return highests;
+}
+
+std::vector<unsigned> Betweenness::get_lowest_rank() {
+    double lowest = 0;
+    for (unsigned i = 0; i < betweennesses_.size(); ++i) {
+        if (betweennesses_[i] < betweennesses_[lowest]) {
+            lowest = i;
+        }
+    }
+
+    std::vector<unsigned> lowests;
+    for (unsigned i = 0; i < betweennesses_.size(); ++i) {
+        if (betweennesses_[i] == betweennesses_[lowest]) {
+            lowests.push_back(i);
+        }
+    }
+
+    return lowests;
 }
