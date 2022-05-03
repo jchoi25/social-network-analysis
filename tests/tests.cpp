@@ -111,13 +111,32 @@ TEST_CASE("DFS Traversal - All Disonnected Undirected Graph", "[dfs]") {
 /* Betweenness Centrality Tests */
 
 TEST_CASE("Betweenness Centrality - Multiple Nodes Connected Graph", "[betweenness]") {
-    
+    Node node0(0);
+    Node node1(1);
+    Node node2(2);
+    Node node3(3);
+    std::vector<Node*> adj0;
+    std::vector<Node*> adj1;
+    std::vector<Node*> adj2;
+    std::vector<Node*> adj3;
+    adj0.push_back(&node1);
+    adj0.push_back(&node2);
+    adj0.push_back(&node3);
+    adj1.push_back(&node0);
+    adj2.push_back(&node0);
+    adj3.push_back(&node0);
+    std::vector<std::vector<Node*>> adjs;
+    std::vector<Node*> nodes;
+    adjs.push_back(adj0);
+    adjs.push_back(adj1);
+    adjs.push_back(adj2);
+    adjs.push_back(adj3);
+    Betweenness betw(adjs);
+    REQUIRE(betw.getbetweenness(&node0) == 1);
 }
 
 TEST_CASE("Betweenness Centrality - Multiple Nodes Disconnected Graph", "[betweenness]") {
-    
 }
 
 TEST_CASE("Betweenness Centrality - All Nodes Disconnected Graph", "[betweenness]") {
-    
 }

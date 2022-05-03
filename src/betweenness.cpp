@@ -2,8 +2,9 @@
 
 Betweenness::Betweenness(const Adjlist adjs) {
     adjs_ = adjs;
-    betweennesses_.resize(adjs_.size());
     betweennesses_.clear();
+    betweennesses_.resize(adjs_.size());
+    calculateBetweenness();
 }
 
 void Betweenness::calculateBetweenness() {
@@ -37,11 +38,21 @@ void Betweenness::calculateBetweenness() {
     }
 
     unsigned total = 0;
-    for (unsigned b2 : betweennesses_) {
-        total += b2;
+    for (unsigned c = 0; c < betweennesses_.size(); ++c) {
+        total = total + betweennesses_[c];
     }
 
-    for (unsigned finalb : betweennesses_) {
-        finalb = finalb / total;
+    for (unsigned j = 0; j < betweennesses_.size(); ++j) {
+        unsigned temp = betweennesses_[j];
+        betweennesses_[j] = temp / total;
     }
+}
+
+std::vector<unsigned> Betweenness::getbetweennesses() {
+    return betweennesses_;
+}
+
+unsigned Betweenness::getbetweenness(Node* node) {
+    unsigned idx = node->get_id();
+    return betweennesses_[idx];
 }
