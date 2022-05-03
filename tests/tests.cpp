@@ -133,6 +133,9 @@ TEST_CASE("Betweenness Centrality - Multiple Nodes Connected Graph", "[betweenne
     adjs.push_back(adj3);
     Betweenness betw(adjs);
     REQUIRE(betw.getbetweenness(&node0) == 1);
+    REQUIRE(betw.getbetweenness(&node1) == 0);
+    REQUIRE(betw.getbetweenness(&node2) == 0);
+    REQUIRE(betw.getbetweenness(&node3) == 0);
 }
 
 TEST_CASE("Betweenness Centrality - Multiple Nodes Disconnected Graph", "[betweenness]") {
