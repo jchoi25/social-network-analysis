@@ -1,11 +1,10 @@
-# slee677-juyoung7-soohar2
-CS 225 Final project repo for SIG
+# CS 225 Final Project Repo for SIG
 
 ## Project Description
-The goal of this project is to analyze a social media network, hen given a node-edge dataset. Specifically, we wanted to find a profile (node) with the most connections (edges) with other profiles in a given network graph...
+The goal of this project is to analyze a social media network, given a node-edge dataset. Specifically, we wanted to find a profile (node) with the most connections (edges) with other profiles in a given network graph...
 
-[Project Proposal](https://github-dev.cs.illinois.edu/cs225-sp22/slee677-juyoung7-soohar2)
-[Project Presentation Video](https://github-dev.cs.illinois.edu/cs225-sp22/slee677-juyoung7-soohar2)
+[Project Proposal](https://github-dev.cs.illinois.edu/cs225-sp22/slee677-juyoung7-soohar2) | 
+[Project Presentation Video](https://github-dev.cs.illinois.edu/cs225-sp22/slee677-juyoung7-soohar2) | 
 [results.md](https://github-dev.cs.illinois.edu/cs225-sp22/slee677-juyoung7-soohar2)
 
 ## Deliverables 
@@ -18,11 +17,15 @@ The goal of this project is to analyze a social media network, hen given a node-
 ```bash
 make tests
 ```
-#### Available Arguments for `make tests`
+#### Available Arguments for Tests
 - `parse` tests with all sample datasets
 - `dfs` tests with all sample datasets
 - `betweenness`
 - `pagerank`
+
+```bash
+make tests [parse]
+```
 
 #### Sample Datasets used for Tests
 - Simple one connected component undirected graph '[one-connected.txt](dataset/sample-data/one-connected.txt)' (7 Nodes, 14 Edges)
