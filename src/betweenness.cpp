@@ -1,108 +1,68 @@
 #include "betweenness.h"
 
-Betweenness::Betweenness(const Adjlist adjs) {
+Betweenness::Betweenness(const std::vector<Node>& nodes, const Adjlist& adjs) {
     adjs_ = adjs;
+    nodes_ = nodes;
     betweennesses_.clear();
-    betweennesses_.resize(adjs_.size());
-    calculateBetweenness();
 }
 
-void Betweenness::calculateBetweenness() {
-    for (unsigned i = 0; i < adjs_.size(); ++i) {
-        if (adjs_[i].empty()) {
-            betweennesses_[i] = 0;
-            continue;
-        }
-        std::queue<unsigned> q;
-        std::vector<bool> visited(adjs_.size());
-        std::vector<unsigned> backtrace(adjs_.size());
-        for (unsigned n = 0; n < backtrace.size(); ++n) {
-            backtrace[n] = -1;
-        }
-        backtrace[i] = i;
+void Betweenness::shortest_path_calculation(Node* node) {
+    predecessors_.clear();
+    sigma_.clear();
+    std::map<unsigned, unsigned> dist;
+    sigma_[node] = 1.0;
+    std::queue<Node*> q;
+    q.push(node);
+    while (!q.empty()) {
+        Node* v = q.front();
+        q.pop();
+        node_stack_.push(v);
+        unsigned distV = dist[v->get_id()];
+        double sigmaV = sigma_[v];
 
-        for (bool v : visited) {
-            v = false;
-        }
-
-        q.push(i);
-        visited[i] = true;
-        while (!q.empty()) {
-            unsigned temp = q.front();
-            q.pop();
-            for (Node* adj : adjs_[temp]) {
-                unsigned id = adj->get_id();
-                if (!visited[id]) {
-                    q.push(id);
-                    visited[id] = true;
-                    backtrace[id] = temp;
-                }
+        for (Node* w : adjs_[v->get_id()]) {
+            if (!dist.count(w->get_id())) {
+                q.push(w);
+                dist[w->get_id()] = distV + 1;
             }
-        }
 
-        for (unsigned idxj = 0; idxj < backtrace.size(); ++idxj) {
-            unsigned k = idxj;
-            while (backtrace[k] != i && backtrace[k] < betweennesses_.size() && backtrace[k] >= 0) {
-                betweennesses_[backtrace[k]] += 1.0;
-                k = backtrace[k];
+            if (dist[w->get_id()] == distV + 1) {
+                sigma_[w] = sigma_[w] + sigmaV;
+                predecessors_[w].push_back(v);
             }
         }
     }
-
-    // double total = 0;
-    // for (unsigned c = 0; c < betweennesses_.size(); ++c) {
-    //     total = total + betweennesses_[c];
-    // }
-
-    // if (total != 0) {
-    //     for (unsigned j = 0; j < betweennesses_.size(); ++j) {
-    //         double temp = betweennesses_[j];
-    //         betweennesses_[j] = temp / total;
-    //     }
-    // }
 }
 
-std::vector<double> Betweenness::getbetweennesses() {
+void Betweenness::brandes(Node* node) {
+    std::map<Node*, double> delta;
+    while (!node_stack_.empty()) {
+        Node* w = node_stack_.top();
+        node_stack_.pop();
+
+        double coef = (1 + delta[w]) / sigma_[w];
+
+        for (Node* v : predecessors_[w]) {
+            delta[v] = delta[v] + sigma_[v] * coef;
+        }
+        if (w != node) {
+            betweennesses_[w] = betweennesses_[w] + delta[w];
+        }
+    }
+}
+
+std::map<Node*, double> Betweenness::calculate_betweenness() {
+    for (Node node : nodes_) {
+        shortest_path_calculation(&node);
+        brandes(&node);
+    }
     return betweennesses_;
 }
 
-double Betweenness::getbetweenness(Node* node) {
-    unsigned idx = node->get_id();
-    return betweennesses_[idx];
+std::map<Node*, double> Betweenness::get_betweennesses() {
+    return betweennesses_;
 }
 
-std::vector<unsigned> Betweenness::get_highest_rank() {
-    double highest = 0;
-    for (unsigned i = 0; i < betweennesses_.size(); ++i) {
-        if (betweennesses_[i] > betweennesses_[highest]) {
-            highest = i;
-        }
-    }
-
-    std::vector<unsigned> highests;
-    for (unsigned i = 0; i < betweennesses_.size(); ++i) {
-        if (betweennesses_[i] == betweennesses_[highest]) {
-            highests.push_back(i);
-        }
-    }
-
-    return highests;
-}
-
-std::vector<unsigned> Betweenness::get_lowest_rank() {
-    double lowest = 0;
-    for (unsigned i = 0; i < betweennesses_.size(); ++i) {
-        if (betweennesses_[i] < betweennesses_[lowest]) {
-            lowest = i;
-        }
-    }
-
-    std::vector<unsigned> lowests;
-    for (unsigned i = 0; i < betweennesses_.size(); ++i) {
-        if (betweennesses_[i] == betweennesses_[lowest]) {
-            lowests.push_back(i);
-        }
-    }
-
-    return lowests;
+double Betweenness::get_betweenness(Node* node) {
+    return betweennesses_[node];
 }
