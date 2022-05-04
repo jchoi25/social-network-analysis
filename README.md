@@ -23,6 +23,7 @@ make tests
 - `betweenness`
 - `pagerank`
 
+### Running Tests with Argument Example
 ```bash
 make tests [parse]
 ```
