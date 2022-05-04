@@ -40,8 +40,8 @@ class Graph {
      **/
     AdjList get_edges() const;
 
-    std::vector<double> BetweennessCentrality(std::string name);
-    static bool compareBetweenness(const Node node1, const Node node2);
+    std::map<Node*, double> betweenness_centrality(std::string name);
+    static bool compare_betweenness(const Node node1, const Node node2);
 
   private:
     unsigned num_nodes_;

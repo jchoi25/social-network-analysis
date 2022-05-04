@@ -24,7 +24,7 @@ output_msg: ; $(CLANG_VERSION_MSG)
 $(EXE): output_msg $(OBJS)
 	$(LD) $(OBJS) $(LDFLAGS) -o $(EXE)
 
-main.o: src/main.cpp src/graph.cpp src/graph.h src/dfs.cpp src/dfs.h src/pagerank.cpp src/pagerank.h
+main.o: src/main.cpp src/graph.cpp src/graph.h src/dfs.cpp src/dfs.h src/pagerank.cpp src/pagerank.h src/betweenness.cpp src/betweenness.h
 	$(CXX) $(CXXFLAGS) src/main.cpp
 
 node.o: src/node.cpp src/node.h 
