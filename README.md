@@ -4,9 +4,9 @@ CS 225 Final project repo for SIG
 ## Project Description
 The goal of this project is to analyze a social media network, hen given a node-edge dataset. Specifically, we wanted to find a profile (node) with the most connections (edges) with other profiles in a given network graph...
 
-[Project Proposal] (https://github-dev.cs.illinois.edu/cs225-sp22/slee677-juyoung7-soohar2)
-[Project Presentation Video] (https://github-dev.cs.illinois.edu/cs225-sp22/slee677-juyoung7-soohar2)
-[results.md] (https://github-dev.cs.illinois.edu/cs225-sp22/slee677-juyoung7-soohar2)
+[Project Proposal](https://github-dev.cs.illinois.edu/cs225-sp22/slee677-juyoung7-soohar2)
+[Project Presentation Video](https://github-dev.cs.illinois.edu/cs225-sp22/slee677-juyoung7-soohar2)
+[results.md](https://github-dev.cs.illinois.edu/cs225-sp22/slee677-juyoung7-soohar2)
 
 ## Deliverables 
 - [Code](https://github-dev.cs.illinois.edu/cs225-sp22/slee677-juyoung7-soohar2/tree/main/src)
@@ -24,11 +24,11 @@ make tests
 - `betweenness`
 - `pagerank`
 
-#### Sample Datasets for Tests
-- Simple one connected component undirected graph 'one-connected.txt' (7 Nodes, 14 Edges)
-- Simple two connected component undirected graph 'two-connected.txt' (8 Nodes, 14 Edges)
-- One connected component undirected graph with many nodes 'one-connected-many-nodes.txt' (50 Nodes, 98 Edges)
-- Simple undirected graph with one node disconnected 'one-node-disconnected.txt' (7 Nodes, 13 Edges)
-- Simple Disconnected Components undirected graph 'many-disconnected.txt' (9 Nodes, 2 Edges)
-- All nodes disconnected undirected graph 'disconnected-many-nodes.txt' (100 Nodes, 0 Edges)
+#### Sample Datasets used for Tests
+- Simple one connected component undirected graph '[one-connected.txt](dataset/sample-data/one-connected.txt)' (7 Nodes, 14 Edges)
+- Simple two connected component undirected graph '[two-connected.txt](dataset/sample-data/two-connected.txt)' (8 Nodes, 14 Edges)
+- One connected component undirected graph with many nodes '[one-connected-many-nodes.txt](dataset/sample-data/one-connected-many-nodes.txt)' (50 Nodes, 98 Edges)
+- Simple undirected graph with one node disconnected '[one-node-disconnected.txt](dataset/sample-data/one-node-disconnected.txt)' (7 Nodes, 13 Edges)
+- Simple Disconnected Components undirected graph '[many-disconnected.txt](dataset/sample-data/many-disconnected.txt)' (9 Nodes, 2 Edges)
+- All nodes disconnected undirected graph '[disconnected-many-nodes.txt](dataset/sample-data/disconnected-many-nodes.txt)' (100 Nodes, 0 Edges)
 
