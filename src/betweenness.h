@@ -3,6 +3,7 @@
 #include <iostream>
 #include <map>
 #include <queue>
+#include <stack>
 #include <vector>
 
 #include "node.h"
@@ -11,15 +12,18 @@ typedef std::vector<std::vector<Node*>> Adjlist;
 
 class Betweenness {
   public:
-    Betweenness(const Adjlist adjs_);
+    Betweenness(const std::vector<Node*> nodes, const Adjlist adjs_);
     void calculateBetweenness();
-    std::vector<double> getbetweennesses();
+    void shortestPathCalculation(Node* node);
+    std::map<Node*, double> getbetweennesses();
     double getbetweenness(Node*);
-
-    std::vector<unsigned> get_highest_rank();
-    std::vector<unsigned> get_lowest_rank();
+    void Brandes(Node* node);
 
   private:
-    std::vector<double> betweennesses_;
+    std::map<Node*, double> betweennesses_;
+    std::map<Node*, std::vector<Node*>> predecessors_;
+    std::map<Node*, double> sigma_;
+    std::stack<Node*> node_stack_;
     Adjlist adjs_;
+    std::vector<Node*> nodes_;
 };
