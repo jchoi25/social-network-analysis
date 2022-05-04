@@ -108,6 +108,18 @@ TEST_CASE("DFS Traversal - All Disonnected Undirected Graph", "[dfs]") {
     remove("output/test-traversal.txt");
 }
 
+TEST_CASE("Betweenness Centrality - Directed One Component", "[b]") {
+    Graph g("dataset/sample-data/connected-directed.txt", 7);
+    vector<double> expected({7.0, 7.0, 4.0, 0.0, 2.0, 0.0, 0.0});
+    auto output = g.BetweennessCentrality("dummy");
+    for (auto num : output) {
+        REQUIRE(expected[num] == num);
+    }
+
+    remove("output/Test_Traversal.txt");
+    remove("output/Test_Betweenness.txt");
+}
+
 /* Betweenness Centrality Tests */
 
 TEST_CASE("Betweenness Centrality - Multiple Nodes Connected Graph", "[betweenness1]") {

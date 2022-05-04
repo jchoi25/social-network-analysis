@@ -49,17 +49,17 @@ void Betweenness::calculateBetweenness() {
         }
     }
 
-    double total = 0;
-    for (unsigned c = 0; c < betweennesses_.size(); ++c) {
-        total = total + betweennesses_[c];
-    }
+    // double total = 0;
+    // for (unsigned c = 0; c < betweennesses_.size(); ++c) {
+    //     total = total + betweennesses_[c];
+    // }
 
-    if (total != 0) {
-        for (unsigned j = 0; j < betweennesses_.size(); ++j) {
-            double temp = betweennesses_[j];
-            betweennesses_[j] = temp / total;
-        }
-    }
+    // if (total != 0) {
+    //     for (unsigned j = 0; j < betweennesses_.size(); ++j) {
+    //         double temp = betweennesses_[j];
+    //         betweennesses_[j] = temp / total;
+    //     }
+    // }
 }
 
 std::vector<double> Betweenness::getbetweennesses() {

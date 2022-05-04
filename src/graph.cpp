@@ -71,3 +71,30 @@ std::string Graph::verify_parse() const {
     }
     return out;
 }
+
+std::vector<double> Graph::BetweennessCentrality(std::string name) {
+    // Getting and Setting the Betweenness Scores
+    Betweenness b(edges_);
+    std::vector<double> betweenness = b.getbetweennesses();
+
+    // Sorting the Betweenness Scores
+    std::vector<Node> sorted_nodes = nodes_;
+    std::sort(sorted_nodes.begin(), sorted_nodes.end(), Graph::compareBetweenness);
+
+    // Saving Probabilities to File
+    std::ofstream myfile;
+    myfile.open("deliverables/" + name + "_Betweenness.txt");
+    myfile << "Betweenness Score for " << std::to_string(num_nodes_) << " nodes:" << std::endl;
+
+    for (unsigned i = 0; i < num_nodes_; i++) {
+        nodes_[sorted_nodes[i].get_id()].set_betweenness_rank(i + 1);
+        myfile << "Node " << std::to_string(sorted_nodes[i].get_id()) << " -> " << std::to_string(sorted_nodes[i].get_betweenness()) << std::endl;
+    }
+    myfile.close();
+
+    return betweenness;
+}
+
+bool Graph::compareBetweenness(const Node node1, const Node node2) {
+    return (node1.get_betweenness() > node2.get_betweenness());
+}
