@@ -1,47 +1,68 @@
 #include "betweenness.h"
 
-Betweenness::Betweenness(const Adjlist adjs) {
+Betweenness::Betweenness(const std::vector<Node>& nodes, const Adjlist& adjs) {
     adjs_ = adjs;
-    betweennesses_.resize(adjs_.size());
+    nodes_ = nodes;
     betweennesses_.clear();
 }
 
-void Betweenness::calculateBetweenness() {
-    for (unsigned i = 0; i < adjs_.size(); ++i) {
-        std::queue<unsigned> q;
-        std::vector<bool> visited(adjs_.size());
-        std::vector<unsigned> backtrace(adjs_.size());
-        backtrace[i] = i;
-        for (bool v : visited) {
-            v = false;
-        }
-        q.push(i);
-        visited[i] = true;
-        while (!q.empty()) {
-            unsigned temp = q.front();
-            q.pop();
-            for (Node* adj : adjs_[temp]) {
-                unsigned id = adj->get_id();
-                if (!visited[id]) {
-                    q.push(id);
-                    visited[id] = true;
-                    backtrace[id] = temp;
-                }
+void Betweenness::shortest_path_calculation(Node* node) {
+    predecessors_.clear();
+    sigma_.clear();
+    std::map<unsigned, unsigned> dist;
+    sigma_[node] = 1.0;
+    std::queue<Node*> q;
+    q.push(node);
+    while (!q.empty()) {
+        Node* v = q.front();
+        q.pop();
+        node_stack_.push(v);
+        unsigned distV = dist[v->get_id()];
+        double sigmaV = sigma_[v];
+
+        for (Node* w : adjs_[v->get_id()]) {
+            if (!dist.count(w->get_id())) {
+                q.push(w);
+                dist[w->get_id()] = distV + 1;
             }
-        }
-        for (unsigned b : backtrace) {
-            if (b != i) {
-                betweennesses_[b] += 1;
+
+            if (dist[w->get_id()] == distV + 1) {
+                sigma_[w] = sigma_[w] + sigmaV;
+                predecessors_[w].push_back(v);
             }
         }
     }
+}
 
-    unsigned total = 0;
-    for (unsigned b2 : betweennesses_) {
-        total += b2;
-    }
+void Betweenness::brandes(Node* node) {
+    std::map<Node*, double> delta;
+    while (!node_stack_.empty()) {
+        Node* w = node_stack_.top();
+        node_stack_.pop();
 
-    for (unsigned finalb : betweennesses_) {
-        finalb = finalb / total;
+        double coef = (1 + delta[w]) / sigma_[w];
+
+        for (Node* v : predecessors_[w]) {
+            delta[v] = delta[v] + sigma_[v] * coef;
+        }
+        if (w != node) {
+            betweennesses_[w] = betweennesses_[w] + delta[w];
+        }
     }
+}
+
+std::map<Node*, double> Betweenness::calculate_betweenness() {
+    for (Node node : nodes_) {
+        shortest_path_calculation(&node);
+        brandes(&node);
+    }
+    return betweennesses_;
+}
+
+std::map<Node*, double> Betweenness::get_betweennesses() {
+    return betweennesses_;
+}
+
+double Betweenness::get_betweenness(Node* node) {
+    return betweennesses_[node];
 }

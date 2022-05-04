@@ -108,16 +108,114 @@ TEST_CASE("DFS Traversal - All Disonnected Undirected Graph", "[dfs]") {
     remove("output/test-traversal.txt");
 }
 
-/* Betweenness Centrality Tests */
+TEST_CASE("Betweenness Centrality - Undirected One Component", "[b]") {
+    Graph g("dataset/sample-data/one-connected.txt", 7);
+    vector<double> expected({19.0, 18.0, 4.0, 0.0, 4.0, 1.0, 0.0});
+    auto output = g.betweenness_centrality("test");
+    for (auto num : output) {
+        REQUIRE(expected[num.first->get_id()] == num.second);
+    }
 
-TEST_CASE("Betweenness Centrality - Multiple Nodes Connected Graph", "[betweenness]") {
-    
+    remove("output/Test_Traversal.txt");
+    remove("output/Test_Betweenness.txt");
 }
 
-TEST_CASE("Betweenness Centrality - Multiple Nodes Disconnected Graph", "[betweenness]") {
-    
-}
+// /* PageRank Tests */
 
-TEST_CASE("Betweenness Centrality - All Nodes Disconnected Graph", "[betweenness]") {
-    
-}
+// TEST_CASE("Pagerank - Multiple Nodes Connected Graph", "[pagerank]") {
+//     Node node0(0);
+//     Node node1(1);
+//     Node node2(2);
+//     Node node3(3);
+//     std::vector<Node*> adj0;
+//     std::vector<Node*> adj1;
+//     std::vector<Node*> adj2;
+//     std::vector<Node*> adj3;
+//     adj0.push_back(&node1);
+//     adj0.push_back(&node2);
+//     adj0.push_back(&node3);
+//     adj1.push_back(&node0);
+//     adj2.push_back(&node0);
+//     adj2.push_back(&node1);
+//     adj3.push_back(&node0);
+//     std::vector<std::vector<Node*>> adjs;
+//     std::vector<Node*> nodes;
+//     adjs.push_back(adj0);
+//     adjs.push_back(adj1);
+//     adjs.push_back(adj2);
+//     adjs.push_back(adj3);
+//     pagerank pr(adjs);
+//     std::vector<unsigned> highests{0};
+//     std::vector<unsigned> lowests{1, 3};
+
+//     REQUIRE(pr.get_highest_rank() == highests);
+//     REQUIRE(pr.get_lowest_rank() == lowests);
+// }
+
+// TEST_CASE("pagerank - Multiple Nodes Disconnected Graph", "[pagerank]") {
+//     Node node0(0);
+//     Node node1(1);
+//     Node node2(2);
+//     Node node3(3);
+//     Node node4(4);
+//     Node node5(5);
+//     std::vector<Node*> adj0;
+//     std::vector<Node*> adj1;
+//     std::vector<Node*> adj2;
+//     std::vector<Node*> adj3;
+//     std::vector<Node*> adj4;
+//     std::vector<Node*> adj5;
+//     adj0.push_back(&node1);
+//     adj0.push_back(&node2);
+//     adj1.push_back(&node0);
+//     adj2.push_back(&node0);
+//     adj3.push_back(&node4);
+//     adj3.push_back(&node5);
+//     adj4.push_back(&node3);
+//     adj5.push_back(&node3);
+//     std::vector<std::vector<Node*>> adjs;
+//     std::vector<Node*> nodes;
+//     adjs.push_back(adj0);
+//     adjs.push_back(adj1);
+//     adjs.push_back(adj2);
+//     adjs.push_back(adj3);
+//     adjs.push_back(adj4);
+//     adjs.push_back(adj5);
+//     pagerank pr(adjs);
+//     std::vector<unsigned> highests{0, 3};
+//     std::vector<unsigned> lowests{1, 2, 4, 5};
+
+//     REQUIRE(pr.get_highest_rank() == highests);
+//     REQUIRE(pr.get_lowest_rank() == lowests);
+// }
+
+// TEST_CASE("pagerank - All Nodes Disconnected Graph", "[pagerank]") {
+//     Node node0(0);
+//     Node node1(1);
+//     Node node2(2);
+//     Node node3(3);
+//     Node node4(4);
+//     Node node5(5);
+//     std::vector<Node*> adj0;
+//     std::vector<Node*> adj1;
+//     std::vector<Node*> adj2;
+//     std::vector<Node*> adj3;
+//     std::vector<Node*> adj4;
+//     std::vector<Node*> adj5;
+//     std::vector<std::vector<Node*>> adjs;
+//     std::vector<Node*> nodes;
+//     adjs.push_back(adj0);
+//     adjs.push_back(adj1);
+//     adjs.push_back(adj2);
+//     adjs.push_back(adj3);
+//     adjs.push_back(adj4);
+//     adjs.push_back(adj5);
+//     pagerank pr(adjs);
+//     std::vector<unsigned> highests{0, 1, 2, 3, 4, 5};
+//     std::vector<unsigned> lowests{0, 1, 2, 3, 4, 5};
+
+//     REQUIRE(pr.get_highest_rank() == highests);
+//     REQUIRE(pr.get_lowest_rank() == lowests);
+// }
+
+/* Finding Shortest Path using BFS Tests */

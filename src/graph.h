@@ -1,5 +1,6 @@
 #pragma once
 
+#include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -38,6 +39,9 @@ class Graph {
      * @returns AdjList of the edges of the parsed graph
      **/
     AdjList get_edges() const;
+
+    std::map<Node*, double> betweenness_centrality(std::string name);
+    static bool compare_betweenness(const Node node1, const Node node2);
 
   private:
     unsigned num_nodes_;
