@@ -29,6 +29,7 @@ make main
 
 #### Run Facebook Network Analysis
 <code>./main dataset/facebook_combined.txt 4039 [output_file_name]</code>
+<br>
 Output file will be located in [output](output) directory with the name inputted.
 
 ### Test Suite
