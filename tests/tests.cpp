@@ -112,6 +112,7 @@ TEST_CASE("DFS Traversal - All Disonnected Undirected Graph", "[dfs]") {
 /* Betweenness Centrality Test */
 
 TEST_CASE("Betweenness Centrality - Undirected One Component", "[b]") {
+
     Graph g("dataset/sample-data/one-connected.txt", 7);
     vector<double> expected({19.0, 18.0, 4.0, 0.0, 4.0, 1.0, 0.0});
     auto output = g.betweenness_centrality("test");
