@@ -14,8 +14,10 @@ void Pagerank::update_probabilities() {
         double total = 0;
         for (Node* temp : adjs_[i]) {
             unsigned idx = temp->get_id();
-            double factor = adjs_[idx].size();
-            total += defaultvalue / factor;
+            if (adjs_[idx].size() != 0) {
+                double factor = adjs_[idx].size();
+                total += defaultvalue / factor;
+            }
         }
         probabilities[i] = total;
     }
