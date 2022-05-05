@@ -1,3 +1,4 @@
+# Graph of 50 nodes traversed
 0
 49
 48
@@ -48,4 +49,3 @@
 3
 2
 1
-Graph of 50 nodes traversed
