@@ -1,13 +1,13 @@
 #include "pagerank.h"
 
-pagerank::pagerank(Adjlist adjs) {
+Pagerank::Pagerank(Adjlist adjs) {
     adjs_ = adjs;
     num_nodes = adjs_.size();
     probabilities.resize(num_nodes);
-    updateprobabilities();
+    update_probabilities();
 }
 
-void pagerank::updateprobabilities() {
+void Pagerank::update_probabilities() {
     double defaultvalue = 1.00 / num_nodes;
 
     for (unsigned i = 0; i < adjs_.size(); ++i) {
@@ -21,11 +21,11 @@ void pagerank::updateprobabilities() {
     }
 }
 
-std::vector<double> pagerank::get_probabilities() {
+std::vector<double> Pagerank::get_probabilities() {
     return probabilities;
 }
 
-std::vector<unsigned> pagerank::get_highest_rank() {
+std::vector<unsigned> Pagerank::get_highest_rank() {
     double highest = 0;
     for (unsigned i = 0; i < probabilities.size(); ++i) {
         if (probabilities[i] > probabilities[highest]) {
@@ -43,7 +43,7 @@ std::vector<unsigned> pagerank::get_highest_rank() {
     return highests;
 }
 
-std::vector<unsigned> pagerank::get_lowest_rank() {
+std::vector<unsigned> Pagerank::get_lowest_rank() {
     double lowest = 0;
     for (unsigned i = 0; i < probabilities.size(); ++i) {
         if (probabilities[i] < probabilities[lowest]) {

@@ -6,10 +6,10 @@
 
 typedef std::vector<std::vector<Node*>> Adjlist;
 
-class pagerank {
+class Pagerank {
   public:
-    pagerank(Adjlist adjs);
-    void updateprobabilities();
+    Pagerank(Adjlist adjs);
+    void update_probabilities();
     std::vector<double> get_probabilities();
     std::vector<unsigned> get_highest_rank();  // function for test
     std::vector<unsigned> get_lowest_rank();   // function for test
