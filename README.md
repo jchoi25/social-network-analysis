@@ -26,10 +26,8 @@ make
 make main
 ./main [input_dataset_path] [number_of_nodes] [output_file_name]
 ```
-
-#### Run Facebook Network Analysis
-<code>./main dataset/facebook_combined.txt 4039 [output_file_name]</code>
-<br><br>
+Run Facebook Network Analysis: <code>./main dataset/facebook_combined.txt 4039 [output_file_name]</code>
+<br>
 Output file will be located in [output](output) directory with the name inputted.
 
 ## Test Suite
@@ -42,8 +40,7 @@ make tests
 - `betweenness`
 - `pagerank`
 
-Running Tests with Argument Example
-<code>make tests [parse]</code>
+Running Tests with Argument Example: <code>make tests [parse]</code>
 
 ### Sample Datasets used for Tests
 - Simple one connected component undirected graph '[one-connected.txt](dataset/sample-data/one-connected.txt)' (7 Nodes, 14 Edges)
