@@ -91,7 +91,7 @@ std::map<Node*, double> Graph::betweenness_centrality(std::string name) {
 
     for (unsigned i = 0; i < num_nodes_; i++) {
         nodes_[sorted_nodes[i].get_id()].set_betweenness_rank(i + 1);
-        myfile << "Node " << std::to_string(sorted_nodes[i].get_id()) << " -> " << std::to_string(sorted_nodes[i].get_betweenness()) << std::endl;
+        myfile << "Node " << std::to_string(sorted_nodes[i].get_id()) << ": " << std::to_string(sorted_nodes[i].get_betweenness()) << std::endl;
     }
     myfile.close();
     return betweenness;
@@ -120,7 +120,7 @@ void Graph::page_rank(std::string name) {
 
     for (unsigned i = 0; i < num_nodes_; ++i) {
         nodes_[sorted_nodes[i].get_id()].set_importance_rank(i + 1);
-        myfile << "Node " << std::to_string(sorted_nodes[i].get_id()) << " -> " << std::to_string(sorted_nodes[i].get_importance()) << std::endl;
+        myfile << "Node " << std::to_string(sorted_nodes[i].get_id()) << ": " << std::to_string(sorted_nodes[i].get_importance()) << std::endl;
     }
     myfile.close();
 }
