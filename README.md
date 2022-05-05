@@ -28,9 +28,7 @@ make main
 ```
 
 #### Run Facebook Network Analysis
-```bash
-./main dataset/facebook_combined.txt 4039 [output_file_name]
-```
+<code>./main dataset/facebook_combined.txt 4039 [output_file_name]</code>
 Output file will be located in [output](output) directory with the name inputted.
 
 ### Test Suite
@@ -49,11 +47,11 @@ make tests
 
 <details>
     <summary>Sample Datasets used for Tests</summary>
-    - Simple one connected component undirected graph '[one-connected.txt](dataset/sample-data/one-connected.txt)' (7 Nodes, 14 Edges)
-    - Simple two connected component undirected graph '[two-connected.txt](dataset/sample-data/two-connected.txt)' (8 Nodes, 14 Edges)
-    - One connected component undirected graph with many nodes '[one-connected-many-nodes.txt](dataset/sample-data/one-connected-many-nodes.txt)' (50 Nodes, 98 Edges)
-    - Simple undirected graph with one node disconnected '[one-node-disconnected.txt](dataset/sample-data/one-node-disconnected.txt)' (7 Nodes, 13 Edges)
-    - Simple Disconnected Components undirected graph '[many-disconnected.txt](dataset/sample-data/many-disconnected.txt)' (9 Nodes, 2 Edges)
-    - All nodes disconnected undirected graph '[disconnected-many-nodes.txt](dataset/sample-data/disconnected-many-nodes.txt)' (100 Nodes, 0 Edges)
+    <code>Simple one connected component undirected graph '[one-connected.txt](dataset/sample-data/one-connected.txt)' (7 Nodes, 14 Edges)</code>
+    <code>Simple two connected component undirected graph '[two-connected.txt](dataset/sample-data/two-connected.txt)' (8 Nodes, 14 Edges)</code>
+    <code>One connected component undirected graph with many nodes '[one-connected-many-nodes.txt](dataset/sample-data/one-connected-many-nodes.txt)' (50 Nodes, 98 Edges)</code>
+    <code>Simple undirected graph with one node disconnected '[one-node-disconnected.txt](dataset/sample-data/one-node-disconnected.txt)' (7 Nodes, 13 Edges)</code>
+    <code>Simple Disconnected Components undirected graph '[many-disconnected.txt](dataset/sample-data/many-disconnected.txt)' (9 Nodes, 2 Edges)</code>
+    <code>All nodes disconnected undirected graph '[disconnected-many-nodes.txt](dataset/sample-data/disconnected-many-nodes.txt)' (100 Nodes, 0 Edges)</code>
 </details>
 
