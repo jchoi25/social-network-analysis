@@ -1,3 +1,4 @@
+# Graph of 100 nodes traversed
 0
 1
 2
@@ -98,4 +99,3 @@
 97
 98
 99
-Graph of 100 nodes traversed

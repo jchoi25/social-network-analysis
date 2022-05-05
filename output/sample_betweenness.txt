@@ -1,0 +1,8 @@
+# Betweenness scores for 7 nodes:
+Node 0 -> 19.000000
+Node 1 -> 18.000000
+Node 2 -> 4.000000
+Node 4 -> 4.000000
+Node 5 -> 1.000000
+Node 3 -> 0.000000
+Node 6 -> 0.000000

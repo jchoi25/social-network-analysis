@@ -1,3 +1,4 @@
+# Graph of 7 nodes traversed
 0
 6
 4
@@ -5,4 +6,3 @@
 3
 1
 2
-Graph of 7 nodes traversed

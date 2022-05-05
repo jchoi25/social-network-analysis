@@ -43,6 +43,9 @@ class Graph {
     std::map<Node*, double> betweenness_centrality(std::string name);
     static bool compare_betweenness(const Node node1, const Node node2);
 
+    static bool compare_probabilities(const Node node1, const Node node2);
+    void page_rank(std::string name);
+
   private:
     unsigned num_nodes_;
     AdjList edges_;

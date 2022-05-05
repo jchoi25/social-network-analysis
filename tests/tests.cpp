@@ -68,45 +68,47 @@ TEST_CASE("Parse Simple Disconnected Graph", "[parse]") {
 
 TEST_CASE("DFS Traversal - Connected Undirected Graph", "[dfs]") {
     Graph g("dataset/sample-data/one-connected.txt", 7);
-    g.traverse("test-traversal.txt");
-    REQUIRE(read_file("sample-output/one-connected.txt") == read_file("test-traversal.txt"));
-    remove("output/test-traversal.txt");
+    g.traverse("test");
+    REQUIRE(read_file("sample-output/one-connected.txt") == read_file("test_traversal.txt"));
+    remove("output/test_traversal.txt");
 }
 
 TEST_CASE("DFS Traversal - Simple Connected Undirected Graph", "[dfs]") {
     Graph g("dataset/sample-data/two-connected.txt", 8);
-    g.traverse("test-traversal.txt");
-    REQUIRE(read_file("sample-output/two-connected.txt") == read_file("test-traversal.txt"));
-    remove("output/test-traversal.txt");
+    g.traverse("test");
+    REQUIRE(read_file("sample-output/two-connected.txt") == read_file("test_traversal.txt"));
+    remove("output/test_traversal.txt");
 }
 
 TEST_CASE("DFS Traversal - Multiple Components Undirected Graph", "[dfs]") {
     Graph g("dataset/sample-data/one-connected-many-nodes.txt", 50);
-    g.traverse("test-traversal.txt");
-    REQUIRE(read_file("sample-output/one-connected-many-nodes.txt") == read_file("test-traversal.txt"));
-    remove("output/test-traversal.txt");
+    g.traverse("test");
+    REQUIRE(read_file("sample-output/one-connected-many-nodes.txt") == read_file("test_traversal.txt"));
+    remove("output/test_traversal.txt");
 }
 
 TEST_CASE("DFS Traversal - Simple Disonnected Undirected Graph", "[dfs]") {
     Graph g("dataset/sample-data/one-node-disconnected.txt", 7);
-    g.traverse("test-traversal.txt");
-    REQUIRE(read_file("sample-output/one-node-disconnected.txt") == read_file("test-traversal.txt"));
-    remove("output/test-traversal.txt");
+    g.traverse("test");
+    REQUIRE(read_file("sample-output/one-node-disconnected.txt") == read_file("test_traversal.txt"));
+    remove("output/test_traversal.txt");
 }
 
 TEST_CASE("DFS Traversal - Multiple Components Disconnected Undirected Graph", "[dfs]") {
     Graph g("dataset/sample-data/many-disconnected.txt", 9);
-    g.traverse("test-traversal.txt");
-    REQUIRE(read_file("sample-output/many-disconnected.txt") == read_file("test-traversal.txt"));
-    remove("output/test-traversal.txt");
+    g.traverse("test");
+    REQUIRE(read_file("sample-output/many-disconnected.txt") == read_file("test_traversal.txt"));
+    remove("output/test_traversal.txt");
 }
 
 TEST_CASE("DFS Traversal - All Disonnected Undirected Graph", "[dfs]") {
     Graph g("dataset/sample-data/disconnected-many-nodes.txt", 100);
-    g.traverse("test-traversal.txt");
-    REQUIRE(read_file("sample-output/disconnected-many-nodes.txt") == read_file("test-traversal.txt"));
-    remove("output/test-traversal.txt");
+    g.traverse("test");
+    REQUIRE(read_file("sample-output/disconnected-many-nodes.txt") == read_file("test_traversal.txt"));
+    remove("output/test_traversal.txt");
 }
+
+/* Betweenness Centrality Test */
 
 TEST_CASE("Betweenness Centrality - Undirected One Component", "[b]") {
     Graph g("dataset/sample-data/one-connected.txt", 7);
@@ -115,12 +117,20 @@ TEST_CASE("Betweenness Centrality - Undirected One Component", "[b]") {
     for (auto num : output) {
         REQUIRE(expected[num.first->get_id()] == num.second);
     }
-
-    remove("output/Test_Traversal.txt");
-    remove("output/Test_Betweenness.txt");
+    remove("output/test_betweenness.txt");
 }
 
-// /* PageRank Tests */
+/* PageRank Test */
+
+TEST_CASE("Page Rank - Connected Graph", "[pagerank]") {
+    Graph g("dataset/sample-data/one-connected.txt", 7);
+    Pagerank pg = Pagerank(g.get_edges());
+    vector<double> expected{0.190476, 0.333333, 0.119048, 0.047619, 0.119048, 0.142857, 0.047619};
+    vector<double> probabilities = pg.get_probabilities();
+    for (size_t i = 0; i < expected.size(); i++) {
+        REQUIRE(expected[i] == Approx(probabilities[i]));
+    }
+}
 
 // TEST_CASE("Pagerank - Multiple Nodes Connected Graph", "[pagerank]") {
 //     Node node0(0);

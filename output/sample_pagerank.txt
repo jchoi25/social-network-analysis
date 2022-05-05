@@ -1,0 +1,8 @@
+# Importance scores for 7 nodes:
+Node 1 -> 0.333333
+Node 0 -> 0.190476
+Node 5 -> 0.142857
+Node 2 -> 0.119048
+Node 4 -> 0.119048
+Node 3 -> 0.047619
+Node 6 -> 0.047619
