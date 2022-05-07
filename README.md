@@ -1,10 +1,10 @@
 # CS 225 Final Project Repo for SIG
 
 ## Project Description
-The goal of this project is to analyze a social media network, given a node-edge dataset. Specifically, we wanted to find a profile (node) with the most connections (edges) with other profiles in a given network graph...
+The goal of this project is to analyze a social media network, given a node-edge dataset. Specifically, we wanted to find a profile (node) with the most connections (edges) with other profiles in a given network graph using DFS, Betweenness Centrality, and Page Rank algorithms.
 
-[Project Proposal](https://github-dev.cs.illinois.edu/cs225-sp22/slee677-juyoung7-soohar2) | 
-[Project Presentation Video](https://github-dev.cs.illinois.edu/cs225-sp22/slee677-juyoung7-soohar2) | 
+[Project Proposal](TeamDocs/ProjectProposal.md) | 
+[Project Presentation Video](TeamDocs/Presentation_Video.mp4) | 
 [results.md](TeamDocs/results.md)
 
 ## Deliverables 
@@ -41,7 +41,7 @@ make test
 - `betweenness`
 - `pagerank`
 
-Running Tests with Argument Example: <code>make test [parse]</code>
+Running Tests with Argument Example: <code>./test [parse]</code>
 
 ### Sample Datasets used for Tests
 - Simple one connected component undirected graph '[one-connected.txt](dataset/sample-data/one-connected.txt)' (7 Nodes, 14 Edges)
