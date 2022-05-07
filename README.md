@@ -32,7 +32,8 @@ Output file will be located in [output](output) directory with the name inputted
 
 ## Test Suite
 ```bash
-make tests
+make test
+./test
 ```
 ### Available Arguments for Tests
 - `parse` tests with all sample datasets
@@ -40,7 +41,7 @@ make tests
 - `betweenness`
 - `pagerank`
 
-Running Tests with Argument Example: <code>make tests [parse]</code>
+Running Tests with Argument Example: <code>make test [parse]</code>
 
 ### Sample Datasets used for Tests
 - Simple one connected component undirected graph '[one-connected.txt](dataset/sample-data/one-connected.txt)' (7 Nodes, 14 Edges)
