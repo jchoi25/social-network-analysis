@@ -23,7 +23,6 @@ The goal of this project is to analyze a social media network, given a node-edge
 make
 ```
 ```bash
-make main
 ./main [input_dataset_path] [number_of_nodes] [output_file_name]
 ```
 Run Facebook Network Analysis: <code>./main dataset/facebook_combined.txt 4039 [output_file_name]</code>
@@ -38,8 +37,8 @@ make test
 ### Available Arguments for Tests
 - `parse` tests with all sample datasets
 - `dfs` tests with all sample datasets
-- `betweenness`
-- `pagerank`
+- `betweenness` test betweenness centrality algorithm
+- `pagerank` test pagerank algorithm
 
 Running Tests with Argument Example: <code>./test [parse]</code>
 
